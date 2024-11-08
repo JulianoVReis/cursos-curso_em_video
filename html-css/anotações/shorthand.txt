@@ -1,0 +1,24 @@
+FONTES:
+
+font-style -> font-weight -> font-size -> font-family
+-------------------------------------------------------------------------------------------------------------------------------------------
+PADDING: (Sentido Horário)
+
+EXEMPLO:
+padding: 10px 20px 30px 40px (top right bottom left)
+paddibg: 10px 20px (top bottom)
+padding: 10px (se todos os lados forem iguais)
+-------------------------------------------------------------------------------------------------------------------------------------------
+MARGIN: (Sentido Horário)
+
+EXEMPLO:
+margin: 10px 20px 30px 40px (top right bottom left)
+margin: 10px 20px (top bottom)
+margin: 10px (se todos os lados forem iguais)
+-------------------------------------------------------------------------------------------------------------------------------------------
+BORDER-RADIUS:
+
+EXEMPLO:
+border-radius: 10px 10px 10px 10px (top left - top right - bottom right - bottom left)
+border-radius: 10px 10px (top left/bottom right - top right/bottom left)
+-------------------------------------------------------------------------------------------------------------------------------------------
