@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Tabela</title>
+	<style>
+		body {
+			font-family: Arial, Helvetica, sans-serif;
+		}
+
+		table {
+			border-collapse: collapse;
+		}
+
+		th {
+			color: white;
+			background-color: #7B7D7A;
+		}
+
+		.white {
+			color: black;
+			background-color: white;
+		}
+
+		.media-num {
+			color: white;
+			background-color: #7B7D7A;
+		}
+
+		.left {
+			text-align: left;
+		}
+
+		th, td {
+			padding: 10px;
+			border: 1px solid black;
+			text-align: center;
+		}
+
+		section {
+			margin-top: 50px;
+		}
+	</style>
+</head>
+<body>
+	<table>
+		<thead>
+			<tr>
+				<th rowspan="2">Área</th>
+				<th rowspan="2">Disciplinas</th>
+				<th colspan="2">Notas</th>
+				<th rowspan="2">Média</th>
+			</tr>
+			<tr>
+				<th>Nota 1</th>
+				<th>Nota 2</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<th rowspan="5" class="white">Exatas</th>
+			</tr>
+			<tr>
+				<td class="left">Matemática</td>
+				<td>00</td>
+				<td>00</td>
+				<td>00</td>
+			</tr>
+			<tr>
+				<td class="left">Física</td>
+				<td>00</td>
+				<td>00</td>
+				<td>00</td>
+			</tr>
+			<tr>
+				<td class="left">Química</td>
+				<td>00</td>
+				<td>00</td>
+				<td>00</td>
+			</tr>
+			<tr>
+				<td class="left">Biologia</td>
+				<td>00</td>
+				<td>00</td>
+				<td>00</td>
+			</tr>
+			<tr>
+				<th colspan="4" class="left">Média de Exatas</th>
+				<td class="media-num">00</td>
+			</tr>
+			<tr>
+				<th rowspan="3" class="white">Humanas</th>
+			</tr>
+			<tr>
+				<td class="left">História</td>
+				<td>00</td>
+				<td>00</td>
+				<td>00</td>
+			</tr>
+			<tr>
+				<td class="left">Geografia</td>
+				<td>00</td>
+				<td>00</td>
+				<td>00</td>
+			</tr>
+		</tbody>
+		<tfoot>
+			<tr>
+				<th colspan="4" class="left">Média de Humanas</th>
+				<td class="media-num">00</td>
+			</tr>
+		</tfoot>
+	</table>
+	<section>
+		<picture>
+			<img src="tabela.png" alt="Tabela">
+		</picture>
+	</section>
+</body>
+</html>
