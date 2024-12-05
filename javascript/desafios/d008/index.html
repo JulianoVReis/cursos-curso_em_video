@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Cálculo de Desconto</title>
+	<style>
+		input {
+			padding: 1rem;
+		}
+	</style>
+</head>
+<body>
+	<section>
+		<h1>Calcular Desconto</h1>
+		<input id="botao" type="button" value="Desconto de 10%">
+	</section>
+	<section id="msg">
+		<p>Clique no botão acima para iniciar.</p>
+	</section>
+	<section id="lista">
+
+	</section>
+	<script>
+		botao.addEventListener('click', clique)
+		function clique() {
+			let prod = prompt('Qual é o produto que você está comprando?')
+			let val = Number(prompt(`Qual é o preço de ${prod}?`))
+			let msg = document.querySelector('#msg')
+			let lista = document.querySelector('#lista')
+			let desc = 10 * val / 100
+			let vaiPag = Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(val - desc)
+			let forVal = Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(val)
+			let forDesc = Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL'}).format(desc)
+			msg.innerHTML = `Calculando desconto de 10% para ${prod}`
+			msg.style.fontWeight = 'bold'
+			msg.style.margin = '1rem 0rem'
+			lista.innerHTML = `
+			<p>O preço original era ${forVal}.</p>
+			<p>Você acaba de ganhar ${forDesc} de desconto (-10%).</p>
+			<p>No fim, você vai pagar ${vaiPag} no produto ${prod}.</p>
+				`
+		}
+	</script>
+</body>
+</html>
