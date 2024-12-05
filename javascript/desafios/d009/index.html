@@ -26,7 +26,22 @@
 	<script>
 		botao.addEventListener('click', clique)
 		function clique() {
-			
+			let msg = document.querySelector('#msg')
+			let lista = document.querySelector('#lista')
+			let nome = prompt('Qual é o nome do funcionário?')
+			let salAtu = Number(prompt(`Qual é o salário de ${nome}?`))
+			let salAum = Number(prompt(`O salário de ${nome} vai ser reajustado em qual porcentagem?`))
+			let aum = salAum * salAtu / 100
+			let res = salAtu + aum
+			let sal = Intl.NumberFormat('pt-BR', {style: 'currency', currency: 'BRL'}).format(salAtu)
+			let aumFor = Intl.NumberFormat('pt-BR', {style: 'currency', currency: 'BRL'}).format(aum)
+			let resFor = Intl.NumberFormat('pt-BR', {style: 'currency', currency: 'BRL'}).format(res)
+			msg.innerHTML = `${nome} recebeu um aumento salarial!`
+			lista.innerHTML = `
+			<p>O salário atual era ${sal}.</p>
+			<p>Com um aumento de 18%, o salário vai aumentar ${aumFor} no próximo mês.</p>
+			<p>E a partir daí, ${nome} vai passar a ganhar ${resFor}.</p>
+				`
 		}
 	</script>
 </body>
