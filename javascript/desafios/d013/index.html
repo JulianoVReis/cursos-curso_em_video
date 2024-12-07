@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Situação do aluno</title>
+	<style>
+		body {
+			font-family: Arial, Helvetica, sans-serif;
+		}
+
+		input {
+			padding: 1rem;
+		}
+	</style>
+</head>
+<body>
+	<section>
+		<h1>Situação do aluno</h1>
+		<input id="botao" type="button" value="Entrar com as notas">
+		<p id="msg">Clique no botão acima para informar as notas do aluno.</p>
+		<p id="lista"></p>
+	</section>
+	<script>
+		botao.addEventListener('click', clique)
+		function clique() {
+			let msg = document.querySelector('#msg')
+			let lista = document.querySelector('#lista')
+			let aluno = prompt('Qual é o nome do aluno(a)')
+			let nota01 = Number(prompt(`Primeira nota de ${aluno}:`))
+			let nota02 = Number(prompt(`Segunda nota de ${aluno}:`))
+			let forNota01 = Intl.NumberFormat('pt-BR', { maximumSignificantDigits: 5 }).format(nota01)
+			let forNota02 = Intl.NumberFormat('pt-BR', { maximumSignificantDigits: 5 }).format(nota02)
+			let med = (nota01 + nota02) / 2
+			let forMed = Intl.NumberFormat('pt-BR', { maximumSignificantDigits: 5 }).format(med)
+
+			msg.innerHTML = `<h3>Analisando a situação de ${aluno}</h3>`
+			if (med > 6) {
+				lista.innerHTML = `
+				<p>Com as notas ${forNota01} e ${forNota02}, a <strong>média é ${forMed}</strong></p>
+				<p>Com média acima de 6,0 o aluno está <mark style="background-color: #C7E9C0;"><strong style="color: #005A32;">APROVADO</strong></mark></p>
+				`
+			}else if (med > 3 && med < 6) {
+				lista.innerHTML = `
+				<p>Com as notas ${forNota01} e ${forNota02}, a <strong>média é ${forMed}</strong></p>
+				<p>Com média entre 3,0 e 6,0, o aluno está em <mark style="background-color: #FFF9AE;"><strong style="color: #A98600;">RECUPERAÇÃO</strong></mark></p>
+				`
+			}else if (med <= 3){
+				lista.innerHTML = `
+				<p>Com as notas ${forNota01} e ${forNota02}, a <strong>média é ${forMed}</strong></p>
+				<p>Com média abaixo de 3,0, o aluno está <mark style="background-color: #FFBABA;"><strong style="color: #A70000;">REPROVADO</strong></mark></p>
+				`
+			}
+		}
+	</script>
+</body>
+</html>
