@@ -1,0 +1,28 @@
+body {
+	font: normal 15pt Arial;
+	background-color: rgb(70, 142, 236);
+}
+
+header {
+	text-align: center;
+	color: white;
+}
+
+section {
+	width: 500px;
+	border-radius: 10px;
+	box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.363);
+	background-color: white;
+	padding: 15px;
+	margin: auto;
+}
+
+#flista {
+	width: 150px;
+}
+
+footer {
+	font-style: italic;
+	text-align: center;
+	color: white;
+}
