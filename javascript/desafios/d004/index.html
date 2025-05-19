@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<style>
+		body {
+			font-family: Arial, Helvetica, sans-serif;
+		}
+
+		button {
+			padding: 1rem;
+		}
+	</style>
+	<title>Document</title>
+</head>
+<body>
+	<h1>Calculando o Troco</h1>
+	<button>Comprar produto</button>
+	<script>
+		let btn = document.querySelector('button')
+
+		btn.addEventListener('click', ()=> {
+			let prod = prompt('Que produto você está comprando?')
+			let prec = +prompt(`Quanto custa ${prod} que você está comprando?`)
+			let val = +prompt(`Qual foi o valor que você deu em ${prod}?`)
+
+			let precFormat = prec.toLocaleString('pt-br', {style: 'currency', currency: 'BRL'})
+    	let valFormat = val.toLocaleString('pt-br', {style: 'currency', currency: 'BRL'})
+    	let troco = (val - prec).toLocaleString('pt-br', {style: 'currency', currency: 'BRL'})
+			alert(`Você comprou ${prod} que custou ${precFormat}. \nDeu ${valFormat} em dinheiro e vai receber ${troco} de troco. \nVolte Sempre!`)
+		})
+	</script>
+</body>
+</html>

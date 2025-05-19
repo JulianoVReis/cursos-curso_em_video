@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<style>
+		body {
+			font-family: Arial, Helvetica, sans-serif;
+		}
+
+		button {
+			padding: 1rem;
+		}
+	</style>
+	<title>Document</title>
+</head>
+<body>
+	<h1>Antes e depois</h1>
+	<button>Antecessor e Sucessor</button>
+	<script>
+		let btn = document.querySelector('button')
+
+		btn.addEventListener('click', ()=> {
+			let num = +prompt('Digite um número inteiro qualquer')
+			alert(`Antes de ${num}, temos o número ${num - 1}. \nDepois de ${num}, temos o número ${num + 1}.`)
+		})
+	</script>
+</body>
+</html>
