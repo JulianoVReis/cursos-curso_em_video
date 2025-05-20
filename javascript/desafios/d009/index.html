@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<style>
+		body {
+			font-family: Arial, Helvetica, sans-serif;
+		}
+
+		button {
+			padding: 1rem;
+		}
+	</style>
+	<title>Document</title>
+</head>
+<body>
+	<h1>Reajuste salarial</h1>
+	<button>Reajustar Salário</button>
+	<p>Clique no botão acima para iniciar.</p>
+	<div></div>
+	<script>
+		let btn = document.querySelector('button')
+		let p = document.querySelector('p')
+		let div = document.querySelector('div')
+
+		btn.addEventListener('click', () => {
+			let nome = prompt('Qual é o nome do funcionário?')
+			let sal = +prompt(`Qual é o salário de ${nome}?`)
+			let por = +prompt(`O salário de ${nome} vai ser reajustado em qual porcentagem?`)
+			let aum = sal * (por / 100)
+			let total = sal + aum
+
+			p.style.fontSize = '1.5rem'
+			p.style.fontWeight = 'bold'
+			p.innerHTML = `${nome} recebeu um aumento salarial!`
+
+			div.innerHTML = `
+			<p>O salário atual era ${sal.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}.</p>
+			<p>Com um aumento de ${por}%, o salário vai aumentar ${aum.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })} no próximo mês.</p>
+			<p>E a partir daí, ${nome} vai passar a ganhar ${total.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}.</p>
+			`
+		})
+	</script>
+</body>
+</html>

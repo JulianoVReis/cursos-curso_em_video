@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<style>
+		body {
+			font-family: Arial, Helvetica, sans-serif;
+		}
+
+		button {
+			padding: 1rem;
+		}
+	</style>
+	<title>Document</title>
+</head>
+<body>
+	<h1>Preço mudou</h1>
+	<button>Verificar</button>
+	<p>Clique no botão acima para analisar a mudança de preço.</p>
+	<div></div>
+	<script>
+		let btn = document.querySelector('button')
+		let p = document.querySelector('p')
+		let div = document.querySelector('div')
+
+		btn.addEventListener('click', () => {
+			let preAnt = +prompt('Qual era o preço anterior do produto?')
+			let preAtu = +prompt('Qual é o preço atual do produto?')
+			let res = preAnt - preAtu
+			let vari = (preAtu - preAnt) / (preAnt * 100)
+
+			p.style.fontSize = '1.5rem'
+			p.style.fontWeight = 'bold'
+			p.innerHTML = 'Analisando os valores informados'
+
+			if ( preAnt < preAtu) {
+				div.innerHTML = `
+				<p>O produto custava ${preAnt.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })} e agora custa ${preAtu.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}.</p>
+				<p>Hoje o produto está mais caro.</p>
+				<p>O preço subiu ${res.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })} em relação ao preço anterior.</p>
+				<p>Uma variação de ${vari}% pra cima.</p>
+				`
+			} else {
+				div.innerHTML = `
+				<p>O produto custava ${preAnt.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })} e agora custa ${preAtu.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}.</p>
+				<p>Hoje o produto está mais barato.</p>
+				<p>O preço caiu ${res.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })} em relação ao preço anterior.</p>
+				<p>Uma variação de ${vari}% pra baixo.</p>
+				`
+			}
+		})
+	</script>
+</body>
+</html>

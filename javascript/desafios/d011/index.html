@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<style>
+		body {
+			font-family: Arial, Helvetica, sans-serif;
+		}
+
+		button {
+			padding: 1rem;
+		}
+
+		span {
+			font-weight: bold;
+		}
+	</style>
+	<title>Document</title>
+</head>
+<body>
+	<h1>Ano Bissexto</h1>
+	<button>Verificar</button>
+	<p>Informe um ano para saber se ele é bissexto</p>
+	<div></div>
+	<script>
+		let btn = document.querySelector('button')
+		let p = document.querySelector('p')
+		let div = document.querySelector('div')
+
+		btn.addEventListener('click', () => {
+			let ano = +prompt('Qual é o ano que você quer verificar?')
+
+			p.style.fontSize = '1.5rem'
+			p.style.fontWeight = 'bold'
+			p.innerHTML = `Analisando o ano de ${ano}...`
+
+			if ((ano % 4 === 0 && ano % 100 !== 0) || (ano % 400 === 0)) {
+				div.innerHTML = `<p>O ano de ${ano} <span style="background-color: #77AA6C">É BISSEXTO</span> ✅</p>`
+			} else {
+				div.innerHTML = `<p>O ano de ${ano} <span style="background-color: #FF5252">NÃO É BISSEXTO</span> ❌</p>`
+			}
+		})
+	</script>
+</body>
+</html>

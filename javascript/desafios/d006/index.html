@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<style>
+		body {
+			font-family: Arial, Helvetica, sans-serif;
+		}
+
+		button {
+			padding: 1rem;
+		}
+
+		ul {
+			list-style: none;
+			padding-left: 0;
+		}
+
+		li + li {
+			padding-top: .8rem;
+		}
+	</style>
+	<title>Document</title>
+</head>
+<body>
+	<h1>Conversor de Temperaturas</h1>
+	<button>Converter</button>
+	<p>Clique no botão acima para iniciar.</p>
+	<ul></ul>
+	<script>
+		let button = document.querySelector('button')
+		let p = document.querySelector('p')
+		let ul = document.querySelector('ul')
+
+		button.addEventListener('click', () => {
+			let temp = +prompt('Digite uma temperatura em ºC (Celsius)')
+			let k = temp + 273.15
+			let f = (temp * 9 / 5) + 32
+
+			p.style.fontWeight = 'bold'
+			p.style.fontSize = '1.5rem'
+			p.innerHTML = `A temperatura de ${temp}ºC, corresponde a...`
+
+			ul.innerHTML = `
+			<li>${k.toFixed(2).replace('.', ',')}ºK (Kelvin)</li>
+			<li>${f.toFixed(2).replace('.', ',')}ºF (Fahrenheit)</li>
+			`
+		})
+	</script>
+</body>
+</html>

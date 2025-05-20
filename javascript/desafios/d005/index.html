@@ -36,12 +36,12 @@
 		btn.addEventListener('click', ()=> {
 			let val = +prompt('Digite uma distância em metros (m)')
 
-			let km = val / 1000
-			let hm = val
-			let dam = val
-			let dm = val
-			let cm = val
-			let mm = val
+			let km = (val / 1000).toLocaleString('pt-BR', { maximumFractionDigits: 3 })
+			let hm = (val / 100).toLocaleString('pt-BR', { maximumFractionDigits: 3 })
+			let dam = (val / 10).toLocaleString('pt-BR', { maximumFractionDigits: 3 })
+			let dm = (val * 10).toLocaleString('pt-BR', { maximumFractionDigits: 3 })
+			let cm = (val * 100).toLocaleString('pt-BR', { maximumFractionDigits: 3 })
+			let mm = (val * 1000).toLocaleString('pt-BR', { maximumFractionDigits: 3 })
 
 			parag.style.fontWeight = 'bold'
 			parag.style.fontSize = '1.5rem'

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<style>
+		body {
+			font-family: Arial, Helvetica, sans-serif;
+		}
+
+		button {
+			padding: 1rem;
+		}
+	</style>
+	<title>Document</title>
+</head>
+<body>
+	<h1>Calcular Desconto</h1>
+	<button>Desconto de 10%</button>
+	<p>Clique no botão acima para iniciar.</p>
+	<div></div>
+	<script>
+		let btn = document.querySelector('button')
+		let p = document.querySelector('p')
+		let div = document.querySelector('div')
+
+		btn.addEventListener('click', () => {
+			let prod = prompt('Qual é o produto que você está comprando?')
+			let prec = +prompt(`Qual é o preço de ${prod}?`)
+			let des = prec * 0.10
+			let res = prec - des
+
+			p.style.fontSize = '1.5rem'
+			p.style.fontWeight = 'bold'
+			p.innerHTML = `Calculando desconto de 10% para ${prod}`
+
+			div.innerHTML = `
+			<p>O preço original era ${prec.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}.</p>
+			<p>Você acaba de ganhar ${des.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })} de desconto (-10%).</p>
+			<p>No fim, você vai pagar ${res.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })} no produto ${prod}.</p>
+			`
+		})
+	</script>
+</body>
+</html>

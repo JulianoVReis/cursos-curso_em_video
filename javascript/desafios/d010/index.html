@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<style>
+		body {
+			font-family: Arial, Helvetica, sans-serif;
+		}
+
+		button {
+			padding: 1rem;
+		}
+	</style>
+	<title>Document</title>
+</head>
+<body>
+	<h1>Resolvendo Bhaskara</h1>
+	<button>Calcular</button>
+	<p>Considerando uma equação no formato <strong>a</strong>x<sup>2</sup> + <strong>b</strong>x + <strong>c</strong> = 0, aperte o botão acima para calcular o valor de Δ.</p>
+	<div></div>
+	<script>
+		let btn = document.querySelector('button')
+		let p = document.querySelector('p')
+		let div = document.querySelector('div')
+
+		btn.addEventListener('click', () => {
+			let valA = +prompt('Qual é o valor de a?')
+			let valB = +prompt('Qual é o valor de b?')
+			let valC = +prompt('Qual é o valor de c?')
+			let delta = valB ** 2 - 4 * valA * valC
+
+			p.style.fontSize = '1.5rem'
+			p.style.fontWeight = 'bold'
+			p.innerHTML = 'Resolvendo Bhaskara'
+
+			div.innerHTML = `
+			<p>A equação atual é <strong>${valA}x<sup>2</sup> + ${valB}x + ${valC} = 0</strong></p>
+			<p>O cálculo realizado será <strong>Δ = ${valB}<sup>2</sup> - 4 . ${valA} . ${valC}</strong></p>
+			<p>O valor calculado foi <strong>Δ = ${delta}</strong></p>
+			`
+		})
+	</script>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<style>
+		body {
+			font-family: Arial, Helvetica, sans-serif;
+		}
+
+		button {
+			padding: 1rem;
+		}
+	</style>
+	<title>Document</title>
+</head>
+<body>
+	<h1>Conversor R$ → US$</h1>
+	<button>Converter</button>
+	<p>Clique no botão acima para iniciar.</p>
+	<script>
+		let cotDol = +prompt('Antes de mais nada. Quanto está a cotação do dólar agora?')
+		let button = document.querySelector('button')
+		let p = document.querySelector('p')
+
+		button.addEventListener('click', () => {
+			let cart = +prompt('Quantos R$ você tem na carteira?')
+			let res = cart / cotDol
+
+			p.innerHTML = `Com ${cart.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}, você conseguirá comprar US$ ${res.toFixed(2)}.`
+		})
+	</script>
+</body>
+</html>
