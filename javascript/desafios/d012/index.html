@@ -27,8 +27,8 @@
 		btn.addEventListener('click', () => {
 			let preAnt = +prompt('Qual era o preço anterior do produto?')
 			let preAtu = +prompt('Qual é o preço atual do produto?')
-			let res = preAnt - preAtu
-			let vari = (preAtu - preAnt) / (preAnt * 100)
+			let res = preAtu - preAnt
+			let vari = ((preAtu - preAnt) / preAnt) * 100
 
 			p.style.fontSize = '1.5rem'
 			p.style.fontWeight = 'bold'
@@ -39,14 +39,14 @@
 				<p>O produto custava ${preAnt.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })} e agora custa ${preAtu.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}.</p>
 				<p>Hoje o produto está mais caro.</p>
 				<p>O preço subiu ${res.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })} em relação ao preço anterior.</p>
-				<p>Uma variação de ${vari}% pra cima.</p>
+				<p>Uma variação de ${vari.toFixed(2)}% pra cima.</p>
 				`
 			} else {
 				div.innerHTML = `
 				<p>O produto custava ${preAnt.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })} e agora custa ${preAtu.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}.</p>
 				<p>Hoje o produto está mais barato.</p>
-				<p>O preço caiu ${res.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })} em relação ao preço anterior.</p>
-				<p>Uma variação de ${vari}% pra baixo.</p>
+				<p>O preço caiu ${Math.abs(res).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })} em relação ao preço anterior.</p>
+				<p>Uma variação de ${Math.abs(vari).toFixed(2)}% pra baixo.</p>
 				`
 			}
 		})

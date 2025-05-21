@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<style>
+		body {
+			font-family: Arial, Helvetica, sans-serif;
+		}
+
+		button {
+			padding: 1rem;
+		}
+	</style>
+	<title>Document</title>
+</head>
+<body>
+	<h1>Situação do aluno</h1>
+	<button>Entrar com as notas</button>
+	<p>Clique no botão acima para informar as notas do aluno.</p>
+	<div></div>
+	<script>
+		let btn = document.querySelector('button')
+		let div = document.querySelector('div')
+
+		btn.addEventListener('click', () => {
+			let nome = prompt('Qual é o nome do aluno?')
+			let nota1 = +prompt(`Primeira nota de ${nome}`)
+			let nota2 = +prompt(`Segunda nota de ${nome}`)
+			let res = (nota1 + nota2) / 2
+
+			if (res > 6) {
+				div.innerHTML = `Aluno(a) ${nome} recebeu uma nota de ${res.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })} e está APROVADO!`
+			} else if (res >= 3) {
+				div.innerHTML = `Aluno(a) ${nome} recebeu uma nota de ${res.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })} e está em RECUPERAÇÃO!`
+			} else {
+				div.innerHTML = `Aluno(a) ${nome} recebeu uma nota de ${res.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })} e está REPROVADO!`
+			}
+		})
+	</script>
+</body>
+</html>
